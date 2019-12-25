@@ -18,8 +18,8 @@ type Employee struct {
 }
 
 func dbConn() (db *sql.DB) {
-	connStr := "postgres://postgres:postgres@localhost/goblog2?sslmode=disable"
-	db, err := sql.Open("postgres", connStr)
+	// connStr := "postgres://postgres:postgres@localhost/goblog2?sslmode=disable"
+	db, err := sql.Open("postgres", os.Getenv("DATABASE_URL"))
 	if err != nil {
 		panic(err.Error())
 	}
